@@ -11,7 +11,7 @@ security = HTTPBearer() # <-- Added this line
 # Update this list with your actual Vercel deployment URL
 origins = [
     "http://localhost:5173",
-    "https://secure-frontend-fahad.vercel.app", # REPLACE with your live Vercel URL
+    "https://secure-frontend-indol.vercel.app", # REPLACE with your live Vercel URL
 ]
 
 app.add_middleware(
