@@ -5,17 +5,21 @@ from fastapi import FastAPI, Depends, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
-security = HTTPBearer()
+# ... (rest of your imports and FastAPI app initialization)
+
+# Update this list with your actual Vercel deployment URL
+origins = [
+    "http://localhost:5173",  # Keep this for local testing
+    "https://secure-frontend-fahad.vercel.app", # <--- REPLACE with your live Vercel URL
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"], 
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # --- Your existing verify_token function stays here ---
 def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
     token = credentials.credentials
